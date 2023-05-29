@@ -13,12 +13,12 @@ const random = () => {
 //music doesn't turn on with line-through button
 const musicTurn = function (srcMusic) {
   if (
-    document.querySelector('.turn-music').style.textDecoration ===
+    document.querySelector('.turn-music').style.textDecoration !==
     'line-through'
   ) {
-    audio.autoplay = false;
-  } else {
     audio.autoplay = true;
+  } else {
+    audio.autoplay = false;
   }
   audio.src = srcMusic;
 };
@@ -31,6 +31,7 @@ const checkButtonDisable = function (condition) {
 };
 
 const audio = new Audio();
+audio.autoplay = true;
 audio.loop = true;
 musicTurn(srcStartMusic);
 
